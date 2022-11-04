@@ -2,7 +2,11 @@ local username = "DavidMGardner"
 local repo = "cc-tweaked"
 local branch = "main"
 local folder = "KhazadDoom-2"
-local gitget = "https://raw.githubusercontent.com/DavidMGardner/cc-tweaked/main/loader.lua"
+local gitget = "https://raw.githubusercontent.com/DavidMGardner/cc-tweaked/main/gitget.lua"
+
+local function download(url, file)
+    save(http.get(url).readAll(),file)
+end
 
 function runGitGet()
     if folder == "" then
@@ -18,7 +22,7 @@ function hte()
     runGitGet()
   else
     print("GitGet application does not exist. Downloading...")
-    download(gitget)
+    download(gitget, "gitget")
     runGitGet()
   end
 end
