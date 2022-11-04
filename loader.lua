@@ -2,18 +2,24 @@ local username = "DavidMGardner"
 local repo = "cc-tweaked"
 local branch = "main"
 local folder = "KhazadDoom-2"
+local gitget = "https://raw.githubusercontent.com/DavidMGardner/cc-tweaked/main/loader.lua"
 
-function hte()
-  if fs.exists("gitget") then
+function runGitGet()
     if folder == "" then
         shell.run("gitget", username, repo, branch)
     else
+        print("GitGet Downloading from Folder...")
         shell.run("gitget", username, repo, branch, folder)
     end
+end
+
+function hte()
+  if fs.exists("gitget") then
+    runGitGet()
   else
     print("GitGet application does not exist. Downloading...")
-    shell.run("pastebin", "get", "6aMMzdwd", "gitget")
-    shell.run("gitget", username, repo, branch)
+    download(gitget)
+    runGitGet()
   end
 end
 
