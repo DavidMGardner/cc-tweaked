@@ -5,7 +5,7 @@ local folder = "KhazadDoom-2"
 
 function hte()
   if fs.exists("gitget") then
-    if folder = "" then
+    if folder == "" then
         shell.run("gitget", username, repo, branch)
     else
         shell.run("gitget", username, repo, branch, folder)
